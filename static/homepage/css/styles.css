@@ -1,0 +1,87 @@
+/*
+* Section - Hero
+*/
+
+#hero {
+  background-image: url("../images/bg-hero.html");
+}
+
+#hero-bg-parallax > .bg-parallax {
+  background-image: url("../images/bg-hero-parallax.html");
+}
+
+#hero-bg-slideshow .slides > .bg-img-cover:nth-child(1) {
+  background-image: url("../images/bg-hero-slideshow-1.html");
+}
+
+#hero-bg-slideshow .slides > .bg-img-cover:nth-child(2) {
+  background-image: url("../images/bg-hero-slideshow-2.html");
+}
+
+#hero-bg-slideshow .slides > .bg-img-cover:nth-child(3) {
+  background-image: url("../images/bg-hero-slideshow-3.html");
+}
+
+#hero-video-vimeo {
+  background-image: url("../images/bg-hero-video-vimeo.html");
+}
+
+#hero-subscribe-form-countdown {
+  background-image: url("../images/bg-hero-subscribe-form-countdown.html");
+}
+
+#hero-subscribe-form-video-vimeo {
+  background-image: url("../images/bg-hero-subscribe-form-video-vimeo.html");    
+}
+
+#hero-subscribe-form-video-youtube {
+  background-image: url("../images/bg-hero-subscribe-form-video-youtube.html");    
+}
+
+#hero-subscribe-form {
+  background-image: url("../images/bg-hero-subscribe-form.html");
+}
+
+#hero-with-countdown {
+  background-image: url("../images/bg-hero-with-countdown.html");
+}
+
+#hero-with-product-image {
+  background-image: url("../images/bg-hero-with-product-image.html");
+}
+
+
+/*
+* Section - Overview
+*/
+
+#overview {
+  background-image: url("../images/bg-overview.html");
+}
+
+
+/*
+* Section - Milestones
+*/
+
+#milestones {
+  background-image: url("../images/bg-milestones.html");
+}
+
+
+/*
+* Section - Pricing
+*/
+
+#pricing {
+  background-image: url("../images/bg-pricing.html");
+}
+
+
+/*
+* Section - Footer CTA
+*/
+
+#footer-cta {
+  background-image: url("../images/bg-footer-cta.html");
+}

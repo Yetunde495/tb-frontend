@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Tebeba - Bookstore</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="shortcut icon" type="image/x-icon" href="media/store/logo/tebeba_books_b.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="static/homepage/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="static/homepage/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="static/homepage/slick/slick.css">
+<link rel="stylesheet" href="static/homepage/slick/slick-theme.css">
+
+
+<link rel="stylesheet" href="static/homepage/css/theme.min.css">
+<link rel="stylesheet" href="static/homepage/css/styles.css">
+<style>
+        .main {
+            animation: transitionIn 0.75s;
+        }
+        @keyframes transitionIn{
+            from {
+                opacity: 0;
+                transform: rotateX(-50deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateX(0)
+            }
+        }
+
+        .inline-photo {
+            border: 1em solid #fff;
+            /*border-bottom: 4em solid #fff;*/
+            border-radius: .25em;
+            box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2);
+            margin: 2em auto;
+            opacity: 0;
+            transform: translateY(4em) rotateZ(-5deg);
+            transition: transform 4s .25s cubic-bezier(0,1,.3,1), opacity .3s .25s ease-out;
+            max-width: 600px;
+            width: 90%;
+            will-change: transform, opacity;
+        }
+
+        .inline-photo.is-visible {
+            opacity: 1;
+            transform: rotateZ(-2deg);
+        }
+
+
+
+        .inline-btns, .feature-box{
+            opacity: 0;
+            transition: transform 4s .25s cubic-bezier(0,1,.3,1), opacity 2s .25s ease-out;
+            will-change: transform, opacity;
+        }
+
+        .inline-btns.is-visible, .feature-box.is-visible, .animate-text-on-scroll.is-visible{
+            opacity: 1;
+        }
+
+
+        .animate-text-on-scroll{
+            opacity: 0;
+            transition: transform 4s .25s cubic-bezier(0,1,.3,1), opacity 1s .25s ease-out;
+            will-change: transform, opacity;
+        }
+
+        
+
+        
+    </style>
+<style>
+        header:not(.shrink) {
+            background-color: rgba(0, 0, 0, .15);
+            border-bottom: 1px solid rgba(255, 255, 255, .15);
+            box-shadow: none;
+        }
+        .navbar-toggler{
+            border: 1px solid #BE9A2F;
+            color: #BE9A2F;
+        }
+
+        .btn-rounded{
+            height: 150px;
+            width: 150px;
+            padding: 25% 20px 20px 20px;
+            border-radius: 50%;
+        }
+
+
+        @media only screen and (max-width: 1199.98px){
+            .navbar-bg-light{
+                background-color: white;
+            }
+        }
+
+        
+
+        @media only screen and (max-width: 500px){
+            .btn-rounded{
+                height: 100px;
+                width: 100px;
+                padding: 15px;
+            }
+
+            .navbar-toggler{
+                padding: 0;
+                border: 0;
+            }
+            .navbar-toggler a.btn{
+                padding: .375rem .60rem;
+            }
+            .navbar-brand img{
+                max-width: 100px;
+            }
+        }
+
+        
+
+        @media only screen and (max-width: 350px){
+            .btn-rounded{
+                height: 80px;
+                width: 80px;
+                padding: 10px;
+                font-size: .80rem
+            }
+            .fa-2x{
+                font-size: 1.5em
+            }
+            .navbar-brand img{
+                max-width: 80px;
+            }
+            .navbar-toggler a.btn{
+                padding: .350rem .50rem;
+            }
+        }
+
+
+        .fa{
+            /* color: #BE9A2F; */
+        }
+
+        .p-img{
+            position: relative;
+            display: inline-block;
+
+            /*display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 200px;*/
+        }
+        .p-img:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0; 
+            height: 0; 
+            display: block;
+            border-left: 45px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-top: 45px solid #bf9b30c9;
+            z-index:0;
+        }
+        .p-img p{
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            color:white;
+            z-index:1;
+            margin:0;
+            padding:0;
+        }
+        
+    </style>
+<style>
+        .feature-box{
+            border: 1px solid #BE9A2F;
+            padding: 15px;
+            -webkit-box-align: start;
+            margin-bottom: 20px;
+        }
+        .featured-box-container .col-sm-6{
+            margin-bottom: 10px;
+        }
+        @media only screen and (min-width: 768px){
+            .feature-box{
+                background: rgba(0,0,0,.15);
+                color: white;
+                margin-bottom: 0px;
+            }
+
+            .featured-box-container .col-sm-6{
+                margin-bottom: opx;
+            }
+        }
+        
+        .feature-box h5{
+            color: #BE9A2F;
+        }
+
+        .flex-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #BF9B30;
+            border-color: #BF9B30;
+            color: white;
+        }
+        .btn-primary:hover{
+            background: white;
+            border-color: #BF9B30;
+            color: #BF9B30;
+        }
+        .text-primary{
+            color: #BF9B30!important;
+        }
+        .btn-white {
+            background: white;
+            border-color: #BF9B30;
+            color: #BF9B30;
+        }
+        .btn-white:hover{
+            background: #BF9B30;
+            border-color: white;
+            color: white;
+        }
+
+        .bg-primary {
+            background: #BF9B30!important;
+        }
+
+        .divider-parent{
+            font-size: 26px;
+            text-transform: uppercase !important;
+            letter-spacing: 0;
+            margin: 0 0 50px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            clear: both;
+            color: #000000;
+            letter-spacing: 0px;
+        }
+
+        .divider::after {
+            content: "";
+            height: 35px;
+            display: inline-block;
+            background: url("static/store/img/divider.png") no-repeat scroll center bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 160px;
+            margin: 0 auto;
+            bottom: -12px;
+        }
+
+        .product-image img{
+            height: 300px;
+            max-width: 100%;
+        }
+
+        .product-title, .product-author{
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+
+        a{
+            color: #BF9B30;
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 574px) {
+            .product-image img{
+                height: 200px;
+            }
+            .product-title{
+                height: 30px;
+                font-size: 13px;
+                white-space: normal;
+            }
+            .product-author{
+                font-size: 11px;
+            }
+        }
+
+        .img-circle{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+        
+        .advisory-img{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%!important;
+            margin: 0 auto;
+            background: white;
+        }
+        .advisory-img img{
+            height: 150px;
+            width: 150px;
+        }
+        
+        @media(min-width: 990px){
+            .card-advisors{
+                min-height: 400px!important;
+            }
+        }
+    </style>
+</head>
+<body id="page-top" data-preloader-color="bg-secondary">
+
+<header class="fixed-top">
+<div class="container h-100">
+<div class="row align-items-center h-100 no-gutters">
+<div class="col-12">
+<nav id="navigation" class="navbar navbar-expand-xl p-0">
+<div class="navbar-header align-items-center d-flex">
+<a href="#page-top" class="navbar-brand m-0 page-scroll">
+<img src="media/store/logo/tebeba_books_b.png" alt="" class="logo-text-dark" />
+<img src="media/store/logo/tebeba_books_b.png" alt="" class="logo-text-light" />
+</a>
+
+<div class="navbar-toggler">
+<a href="store/index.html" class="btn btn-primary">Visit Our Store</a>
+<a href="author/addnew/index.html" class="btn btn-primary">Publish</a>
+</div>
+</div>
+
+<div class="navbar-collapse collapse d-xl-flex justify-content-xl-end navbar-bg-light" id="navbar-header">
+<a href="store/index.html" class="btn btn-primary">Visit Our Store</a>
+<a href="author/addnew/index.html" class="btn btn-primary ml-2">Publish</a>
+</div>
+
+
+</nav>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<div class="main h-100 p-0">
+
+
+<section id="hero-subscribe-form" class="bg-img-cover bg-overlay-7" style="background-image: url('static/store/img/paperback2.png'); height: 100%">
+<div class="container h-100">
+<div class="row align-items-center h-100 justify-content-center">
+<div class="col-lg-8 text-center">
+
+<p class="text-light font-weight-bold mb-5" style="line-height: 1.2; font-size: x-large">
+Every great reader deserves to read a book from a great author.
+Welcome to the platform where great readers meet great authors!
+</p>
+<div class="row">
+<div class="col-4">
+<a href="homepage/indexaed4.html?q=e-books" class="btn btn-primary btn-rounded inline-btns">
+<i class="fa fa-book-open fa-2x"></i><br />
+E-books
+</a>
+</div>
+<div class="col-4">
+<a href="homepage/index970f.html?q=audio-books" class="btn btn-white btn-rounded inline-btns">
+<i class="fa fa-volume-up fa-2x"></i><br />
+Audio Books
+</a>
+</div>
+<div class="col-4">
+<a href="homepage/index2fa8.html?q=paper-backs" class="btn btn-primary btn-rounded inline-btns">
+<i class="fa fa-book fa-2x"></i><br />
+Paper Backs
+</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="w-100 d-none d-md-block" style="position: absolute; bottom: 0;">
+<div class="container">
+<div class="row">
+<div class="col-xl-3 col-md-3">
+<div class="feature-box h-100 flex-center bg-primary">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-users"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>111</strong></h5>
+<p>published authors</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-3 mt--10">
+<a href="store/index.html" class="d-block h-100">
+<div class="feature-box h-100 flex-center bg-primary">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+ <i class="fas fa-book"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>164</strong></h5>
+<p>books in library</p>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-xl-3 col-md-3 mt--10">
+<div class="feature-box h-100 flex-center bg-primary">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-book-open"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>158</strong></h5>
+<p>books read</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-3 mt--10">
+<div class="feature-box h-100 flex-center bg-primary">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-users"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>463</strong></h5>
+<p>active readers</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="main">
+<div class="w-100 d-md-none" style="">
+<div class="container-fluid">
+<div class="row featured-box-container">
+<div class="col-xl-3 col-md-3 col-sm-6 mt-2">
+<div class="feature-box h-100 flex-center bg-primary text-light">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-users"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>111</strong></h5>
+<p>best selling authors</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-6 mt-2">
+<a href="store/index.html" class="d-block h-100 text-dark">
+<div class="feature-box h-100 flex-center bg-primary text-light">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-book"></i>
+</div>
+ </div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>164</strong></h5>
+<p>books in library</p>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-6 mt-2">
+<div class="feature-box h-100 flex-center bg-primary text-light">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-book-open"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>158</strong></h5>
+<p>books read</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-6 mt-2">
+<div class="feature-box h-100 flex-center bg-primary text-light">
+<div class="row">
+<div class="col-12 text-center">
+<div class="icon">
+<i class="fas fa-users"></i>
+</div>
+</div>
+<div class="col-12">
+<div class="text text-center">
+<h5 class="text-light"><strong>463</strong></h5>
+<p>active readers</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="w-100 jumbotron bg-dark text-light" style="font-size: large">
+<div class="container text-center animate-text-on-scroll">
+<p><span class="text-muted">The popular saying goes thus:</span>
+<blockquote style="font-weight: 600"><em>“The best way to hide something from Black people is to put it in a book."</em></blockquote></p>
+<p>We're changing this narrative by maximizing the effectiveness of mobile technology across Africa to make great books available for everyone to read, in different formats.
+</p>
+</div>
+</section>
+<section class="container" style="font-size: large">
+<div class="text-center animate-text-on-scroll">
+<p>
+It is the dream of every African Author and Reader to have unlimited
+access to Audiobooks, eBooks and Paperbacks all in one platform.
+This is why we have built TEBEBA BOOKS to help you Publish your
+books in three different formats and have them available and
+affordable to the Global Audience.
+</p>
+<p class="mt-4">
+We have made it easy for Readers to have access to books from their favourite Authors in three different formats.
+</p>
+</div>
+</section>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#carouselExampleIndicators" data-slide-to="0" style="background-color: #FFC107;" class="active"></li>
+<li data-target="#carouselExampleIndicators" data-slide-to="1" style="background-color: #FFC107;"></li>
+<li data-target="#carouselExampleIndicators" data-slide-to="2" style="background-color: #FFC107;"></li>
+</ol>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<section class="container-fluid bg-light" style="font-size: large">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 col-md-6 order-2 order-sm-1">
+<div class="h-100 flex-center mb-3 animate-text-on-scroll" style="flex-direction: column">
+<h4 class="container mb-4 text-center">
+<p class="mb-2">Are you ready to publish your e-book so that your readers can have access to it?</p>
+<p>Are you ready to read from your favorite authors using our dedicated e-reader?</p>
+</h4>
+<a href="homepage/indexaed4.html?q=e-books" class="btn btn-primary">Get Started</a>
+</div>
+</div>
+<div class="col-sm-6 col-md-6 order-1 order-sm-2">
+<div class="w-00">
+
+<img src="static/store/img/ebook.png" class="w-100 inline-photo show-on-scroll" />
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="carousel-item">
+<section class="container" style="font-size: large">
+<div class="row">
+<div class="col-sm-6 col-md-6 order-1 order-sm-1">
+<div class="w-00">
+
+<img src="static/store/img/audiobook.png" class="w-100 inline-photo show-on-scroll" />
+</div>
+</div>
+<div class="col-sm-6 col-md-6 order-2 order-sm-2">
+<div class="h-100 flex-center mb-3 animate-text-on-scroll" style="flex-direction: column">
+<h4 class="container mb-4 text-center">
+<p class="mb-2">Are you ready to publish your audiobook so that your audience can have access to it?</p>
+<p>Are you ready to have access to our library of amazing audiobooks?</p>
+</h4>
+<a href="homepage/index970f.html?q=audio-books" class="btn btn-primary">Start Listening</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="carousel-item">
+<section class="container-fluid bg-light" style="font-size: large">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 col-md-6 order-2 order-sm-1">
+<div class="h-100 flex-center mb-3 animate-text-on-scroll" style="flex-direction: column">
+<h4 class="container mb-4 text-center">
+<p class="mb-2">Would you like us to help you publish and print your book so that it can be available on our platform for your readers to buy?</p>
+<p>Would you like to check out our library of amazing printed books?</p>
+</h4>
+<a href="homepage/index2fa8.html?q=paper-backs" class="btn btn-primary">Place Your Order</a>
+</div>
+</div>
+<div class="col-sm-6 col-md-6 order-1 order-sm-2">
+<div class="w-00">
+
+<img src="static/store/img/paperback.png" class="w-100 inline-photo show-on-scroll" />
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true" style="background-image: unset;"><i class="fa fa-angle-left fa-2x" style="color: #FFC107"></i></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true" style="background-image: unset;"><i class="fa fa-angle-right fa-2x" style="color: #FFC107"></i></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+
+<section class="container">
+<div class="divider-parent">
+<h3 class="divider">Trending Books</h3>
+</div>
+<div class="slick-carousel">
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/212/index.html">
+<div class="flex-center product-image">
+<img src="media/products/WhatsApp_Image_2022-03-15_at_10.00.27_AM.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/212/index.html">
+<h4 class="font-weight-bold product-title">Enoch Adeboye: A Friend of God</h4>
+</a>
+<p class="product-author text-muted">Emmanuel Olujobi</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/211/index.html">
+<div class="flex-center product-image">
+<img src="media/products/4_5942842828957682196.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/211/index.html">
+<h4 class="font-weight-bold product-title">AUNTY B SPEAKS: THE MONOLOGUE</h4>
+</a>
+<p class="product-author text-muted">Mobolaji Adesoye</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/210/index.html">
+<div class="flex-center product-image">
+<img src="media/products/bryt_lite.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/210/index.html">
+<h4 class="font-weight-bold product-title">Bright Light</h4>
+</a>
+<p class="product-author text-muted">Taiwo Christopher</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/209/index.html">
+<div class="flex-center product-image">
+<img src="media/products/WhatsApp_Image_2022-02-05_at_12.19.24_PM.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/209/index.html">
+<h4 class="font-weight-bold product-title">FALLING</h4>
+</a>
+<p class="product-author text-muted">Bright Okosun</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/208/index.html">
+<div class="flex-center product-image">
+<img src="media/products/WhatsApp_Image_2022-02-10_at_1.40.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/208/index.html">
+<h4 class="font-weight-bold product-title">Akporobaro</h4>
+</a>
+<p class="product-author text-muted">Chineye Emu</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/207/index.html">
+<div class="flex-center product-image">
+<img src="media/products/WhatsApp_Image_2022-01-27_at_8.42.58_PM.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/207/index.html">
+<h4 class="font-weight-bold product-title">The Five Fs to Creating Your Ideal Family Life</h4>
+</a>
+<p class="product-author text-muted">Blessing Ishomo</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/206/index.html">
+<div class="flex-center product-image">
+<img src="media/products/WhatsApp_Image_2022-01-20_at_7.03.26_AM.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/206/index.html">
+<h4 class="font-weight-bold product-title">Table for Two</h4>
+</a>
+<p class="product-author text-muted">Praise Obaribirin</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/205/index.html">
+<div class="flex-center product-image">
+<img src="media/products/WhatsApp_Image_2021-12-31_at_9.40.33_AM.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/205/index.html">
+<h4 class="font-weight-bold product-title">The Millionaire Writer&#x27;s Blueprint:</h4>
+</a>
+<p class="product-author text-muted">Emmanuel Olatunji</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/204/index.html">
+<div class="flex-center product-image">
+<img src="media/products/inbound1572219651950678441.png" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/204/index.html">
+<h4 class="font-weight-bold product-title">MEMOIRS OF A BORNO CORPER</h4>
+</a>
+<p class="product-author text-muted">Anuoluwapo Asaoye</p>
+</div>
+</div>
+<div class="card m-2">
+<div class="card-image">
+<a href="store/details/203/index.html">
+<div class="flex-center product-image">
+<img src="media/products/CHRISTIAN_IN_THE_GREAT_TRIBULATION_BACK_COVER_FINISHED_front.jpg" alt="">
+</div>
+</a>
+</div>
+<div class="card-body text-center">
+<a href="store/details/203/index.html">
+<h4 class="font-weight-bold product-title">Christians in the Great Tribulation?</h4>
+</a>
+<p class="product-author text-muted">Tonye Ukaa</p>
+ </div>
+</div>
+</div>
+</section>
+
+<section class="container">
+<div class="divider-parent">
+<h3 class="divider">MEET OUR ADVISORS</h3>
+</div>
+<div class="row">
+<div class="col-sm-6 col-lg-3">
+<div class="card card-advisors bg-primary text-light text-center mb-4">
+<div class="card-img advisory-img mt-4 mb-4">
+<img class="img-circle" src="static/homepage/advisory-board/Dr_Lola-removebg-preview.png">
+</div>
+<div class="card-body">
+<h4 class="mb-2">Dr. LOLA AYANGBAYI</h3>
+<p><small>Editor , Writer, and Writing Consultant.</small></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="card card-advisors bg-primary text-light text-center mb-4">
+<div class="card-img advisory-img mt-4 mb-4">
+<img class="img-circle" src="static/homepage/advisory-board/Sunday_Anani-removebg-preview.png">
+</div>
+<div class="card-body">
+<h4>Sunday Anani</h3>
+<p><small>Author, Teacher, Coach, trainer, and editor.</small></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="card card-advisors bg-primary text-light text-center mb-4">
+<div class="card-img advisory-img mt-4 mb-4">
+<img class="img-circle" src="static/homepage/advisory-board/Chris-removebg-preview.png">
+</div>
+<div class="card-body">
+<h4>CHRIS OMOJIADE</h3>
+<p><small>Leadership development expert, author, and management consultant.</small></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="card card-advisors card-advisors bg-primary text-light text-center mb-4">
+<div class="card-img advisory-img mt-4 mb-4">
+<img class="img-circle" src="static/homepage/advisory-board/Ini_Akpan-removebg-preview.png">
+</div>
+<div class="card-body">
+<h4>INI AKPAN</h3>
+<p><small>CEO SW Advantage, Ghostwriter, Publisher, Writer, Trainer, and Consultant.</small></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="container-fluid bg-dark text-light" style="font-size: large">
+<div class="container">
+<div class="pt-4"></div>
+<div class="text-center pt-4 divider-parent">
+<h3 class="divider text-light">TEBEBA BOOKS</h3>
+</div>
+<div class="pb-4"></div>
+<div class="flex-center">
+<ul style="list-style-type:none">
+<li><i class="fa fa-check-circle text-primary"></i> We make ebook and audiobook publishing simple, swift, and absolutely free.</li>
+<li><i class="fa fa-check-circle text-primary"></i> Upload your ebook or audiobook once and reach multiple audiences for free. </li>
+<li><i class="fa fa-check-circle text-primary"></i> We promote hardcopy books for our authors so they can reach their audiences.</li>
+<li><i class="fa fa-check-circle text-primary"></i> We make reading easy and enjoyable. </li>
+ <li><i class="fa fa-check-circle text-primary"></i> We make great and quality books easily accessible to readers worldwide. </li>
+<li><i class="fa fa-check-circle text-primary"></i> We provide a simple publishing system to make it easy for anyone to create, publish, and distribute ebooks and audiobooks.</li>
+</ul>
+</div>
+<div class="pt-5"></div>
+</div>
+</section>
+<section class="bg-grey" style="font-size: large;">
+<div class="container text-center animate-text-on-scroll">
+<p class="mb-3">We have exceptional services to help you get started as an Author
+because we have your interest at heart.</p>
+<p class="mb-3">If you want to get your thoughts, ideas, stories or messages into any of
+the three book formats, this is just the right place to be.
+How would you love to have your book published?</p>
+<div class="text-center mb-4">
+<a href="homepage/indexaed4.html?q=e-books" class="btn btn-primary mb-2"><i class="fa fa-book-open"></i> eBOOKS</a>
+<a href="homepage/index970f.html?q=audio-books" class="btn btn-primary mb-2"><i class="fa fa-volume-up"></i> AUDIOBOOKS</a>
+<a href="homepage/index2fa8.html?q=paper-backs" class="btn btn-primary mb-2"><i class="fa fa-book"></i> PAPERBACKS</a>
+</div>
+<div class="newsletter-section">
+<p style="font-size: 13px;">BE THE FIRST TO KNOW ABOUT OUR NEW PUBLISHED BOOKS AND PUBLISHING TIPS</p>
+<form method="POST">
+<input type="hidden" name="csrfmiddlewaretoken" value="B58qoF3Frole6LKaBm4s6yg8gZpJ6pbyYz2sDC8jv1Lf33CpUgAuIXJUPO4A3jSF">
+<div class="input-group">
+<input type="email" name="email" required class="form-control" placeholder="Enter your email" style="border: 1px solid #BE9A2F!important">
+<div class="input-group-addon">
+<button class="btn btn-primary btn-lg h-100">SIGN UP</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>
+</div>
+<div class="p-4 bg-dark text-light text-center">
+<p>&copy; 2022 TEBEBA BOOKS All rights reserved</p>
+
+</div>
+
+<a href="#page-top" class="page-scroll scroll-to-top shadow">
+<i class="fas fa-chevron-up"></i>
+</a>
+
+<script src="static/homepage/js/jquery.min.js"></script>
+<script src="static/homepage/js/bootstrap.bundle.min.js"></script>
+
+<script src="static/homepage/js/plugins.js"></script>
+
+<script src="static/homepage/js/theme.js"></script>
+<script src="static/homepage/slick/slick.min.js"></script>
+<script>
+        
+        
+    </script>
+<script>
+        $(document).ready(function() {
+            $('.inline-btns').addClass('is-visible');
+            $('.feature-box').addClass('is-visible');
+
+            $('.slick-carousel').slick({
+                slidesToShow: 5,
+                slidesToScroll: 2,
+                autoplay: true,
+                autoplaySpeed: 2000,
+
+                dots: true,
+                focusOnSelect: true,
+                infinite: true,
+
+                responsive: [
+                    {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                    },
+                    {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                    }
+                ]
+            });
+            
+        })
+
+        var scroll = window.requestAnimationFrame || function(callback) { window.setTimeout(callback, 1000/60) };
+
+        var elementsToShow = document.querySelectorAll('.show-on-scroll');
+        var textToShow = document.querySelectorAll('.animate-text-on-scroll');
+        var btnsToShow = document.querySelectorAll('.inline-btns');
+        var boxToShow = document.querySelectorAll('.feature-box');
+
+        function loop() {
+            /*elementsToShow.forEach(function(element) {
+                if (isElementInViewport(element)) {
+                    element.classList.add('is-visible');
+                }else{
+                    element.classList.remove('is-visible');
+                }
+            });*/
+
+            const loopAndShowElem = elems =>{
+                elems.forEach(function(element) {
+                    if (isElementInViewport(element)) {
+                        element.classList.add('is-visible');
+                    }else{
+                        element.classList.remove('is-visible');
+                    }
+                });
+            }
+            loopAndShowElem(elementsToShow);
+            loopAndShowElem(textToShow);
+            loopAndShowElem(btnsToShow);
+            loopAndShowElem(boxToShow);
+
+            scroll(loop);
+        }
+
+        loop();
+
+        function isElementInViewport(el) {
+            // special bonus for those using jQuery
+            if (typeof jQuery === "function" && el instanceof jQuery){
+                el = el[0];
+            }
+            var rect = el.getBoundingClientRect();
+            return (
+                    (rect.top <= 0 && rect.bottom >= 0)
+                        ||
+                    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+                    ||
+                    (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+                );
+            
+        }
+    </script>
+</body>
+
+</html>

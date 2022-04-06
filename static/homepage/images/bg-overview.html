@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Tebeba - Book Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<noscript>
+        <h3>You must have JavaScript enabled in order to use this order form. Please 
+        enable JavaScript and then reload this page in order to continue. </h3> 
+        <meta HTTP-EQUIV="refresh" content=0;url="/javascriptNotEnabled/">
+    </noscript>
+<link rel="stylesheet" type="text/css" media="screen" href="/static/store/assets/css/plugins.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/store/assets/css/main.css" />
+<link rel="stylesheet" href="/static/store/assets/font-awesome/css/font-awesome.min.css">
+<link type="text/css" href="/static/store/assets/js/jplayer/skin/pink.flag/css/jplayer.pink.flag.css" rel="stylesheet" />
+<link rel="shortcut icon" type="image/x-icon" href="">
+<style>
+        .site-wrapper {
+            animation: transitionIn 0.75s;
+        }
+        @keyframes transitionIn{
+            from {
+                opacity: 0;
+                transform: rotateX(-50deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateX(0)
+            }
+        }
+        a:hover {
+            color: wheat;
+            text-decoration: underline;
+        }
+    </style>
+<style>
+        .overlay-0{
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%
+        }
+        .flex-center{
+            display: flex; align-items: center; justify-content: center; height:100%;
+        }
+        .btn-cart{
+            padding: .25rem .50rem!important;
+            min-height: unset;
+        }
+    </style>
+<style>
+        .p-img{
+            position: relative;
+               display: inline-block;
+        }
+        .p-img:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0; 
+            height: 0; 
+            display: block;
+            border-left: 45px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-top: 45px solid #bf9b30c9;
+            z-index:0;
+        }
+        .p-img p{
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            color:white;
+            z-index:1;
+            margin:0;
+            padding:0;
+        }
+        
+        @media only screen and (max-width: 400px){
+            .hero-area.hero-slider-2 .home-content {
+                 min-height: 200px; 
+            }
+            .hero-area.hero-slider-2 .home-content h2{
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+            .hero-area.hero-slider-2 .home-content .btn{
+                margin-top: 0;
+                line-height: 20px;
+                min-height: 20px;
+                padding: 0 13px;
+            }
+            .hero-area.hero-slider-2 .home-content .title-small{
+                font-size: 12px;
+            }
+        }
+
+        @media only screen and (max-width: 575px) {
+            .img-details {
+                display: block;
+                margin: 0 auto;
+                width: 150px;
+            }
+
+            h3.product-list-title a{
+                font-size: 12px;
+                margin-bottom: unset;
+            }
+        }
+
+        .product-card .author {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 120px;
+            margin: 0 auto;
+        }
+
+        .bg-black{
+            background-color: black;
+        }
+
+        .mb-8{
+            margin-bottom: 8em;
+        }
+
+        .btn-sm{
+            padding: .25rem .5rem;
+            min-height: unset;
+        }
+    </style>
+<style>
+        /* width */
+        ::-webkit-scrollbar {
+        width: 15px;
+        }
+
+        .fixed-section::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #BF9B30; 
+        border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #bf9b3087; 
+        }
+    </style>
+<style>
+        .fixed-section{
+            position: fixed;
+            top: 100px;
+            right: auto;
+            height: 500px;
+            overflow-y: scroll
+        }
+        .pos-static{
+            position: static !important;
+            top: unset !important;
+            right: unset !important;
+            margin-right: unset !important;
+            width: unset !important;
+        }
+    </style>
+<style>
+        .divider-parent{
+            font-size: 26px;
+            text-transform: uppercase !important;
+            letter-spacing: 0;
+            margin: 0 0 50px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            clear: both;
+            color: #000000;
+            letter-spacing: 0px;
+        }
+
+        .divider::after {
+            content: "";
+            height: 35px;
+            display: inline-block;
+            background: url("/static/store/img/divider.png") no-repeat scroll center bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 160px;
+            margin: 0 auto;
+            bottom: -12px;
+        }
+
+        .category-nav .mobile-category-trigger:before{
+            content: "";
+        }
+        
+        .site-header{
+            margin-bottom: 0px!important;
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrapper" id="top">
+<div class="site-header header-2 mb--20 d-none d-lg-block">
+<div class="header-middle pt--10 pb--10">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-3">
+<a href="/" class="site-brand">
+<img src="/media/store/logo/tebeba_books_b.png" alt="" style="max-height: 60px">
+</a>
+</div>
+<div class="col-lg-5">
+<div class="header-search-block">
+<form method="POST" action="/store/search/" class="search-form">
+<input type="hidden" name="csrfmiddlewaretoken" value="lKCKZv3xICSkUUYps6cCybqhevK4L7ZPIewMes8bMfilRcQEL0IEaAT3NkpVI1GW">
+<button>Search</button>
+</form>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="main-navigation flex-lg-right">
+<div class="cart-widget">
+<div class="login-block">
+<a href="/accounts/login/" class="font-weight-bold">Login</a> <br>
+<span>or</span><a href="/accounts/signup/">Register</a>
+</div>
+<div class="cart-block">
+<div class="cart-total">
+<span class="text-number" id="countItems">
+0
+</span>
+<span class="text-item">
+ Shopping Cart
+</span>
+<span class="price">
+<span id="totalPrice">0.00</span>
+<i class="fas fa-chevron-down"></i>
+</span>
+</div>
+<div class="cart-dropdown-block">
+
+<div id="cart-dropdown-items"></div>
+<div class="single-cart-block ">
+<div class="btn-block">
+<a href="/store/checkout/" class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
+<a href="/store/checkout/" class="btn btn--primary">Check Out <i class="fas fa-chevron-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="header-bottom bg-primary">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-3">
+<nav class="category-nav white-nav  ">
+<div>
+<a href="javascript:void(0)" class="category-trigger"><i class="fa fa-bars"></i>Browse
+categories</a>
+<ul class="category-menu">
+<li class="cat-item">
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="col-lg-2">
+<div class="header-phone color-white">
+<div class="icon">
+<i class="fas fa-headphones-alt"></i>
+</div>
+<div class="text" style="font-size: 12px;">
+<p>Free Support 24/7</p>
+<p class="font-weight-bold number"><a href="phone:"></a></p>
+</div>
+</div>
+</div>
+<div class="col-lg-7">
+<div class="main-navigation flex-lg-right">
+<style>
+                                    @media (min-width: 992px){
+                                        ul.main-menu > li.menu-item > a {
+                                            font-size: 12px;
+                                        }
+                                    }
+                                </style>
+<ul class="main-menu menu-right main-menu--white li-last-0">
+<li class="menu-item">
+<a href="/">Home</a>
+</li>
+<li class="menu-item has-children">
+<a href="/store/eBooks/" style="text-transform:initial">eBOOKS <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+<ul class="sub-menu">
+<li><a href="/store/eBooks/">All <span style="text-transform:initial">eBooks</span></a></li>
+</ul>
+</li>
+<li class="menu-item has-children">
+<a href="/store/audiobooks/">Audiobooks <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+<ul class="sub-menu">
+<li><a href="/store/audiobooks/">All Audiobooks</a></li>
+</ul>
+</li>
+<li class="menu-item has-children">
+<a href="/store/paperbacks/">Paperbacks <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+<ul class="sub-menu">
+<li><a href="/store/paperbacks/">All Paperbacks</a></li>
+</ul>
+</li>
+<li class="menu-item">
+<a href="/store/library/">Library</a>
+</li>
+<li class="menu-item">
+<a href="/author/">Publish</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="site-mobile-menu">
+<header class="mobile-header  d-block d-lg-none pt--10 pb-md--10">
+<div class="container">
+<div class="row align-items-sm-end align-items-center">
+<div class="col-md-4 col-7">
+<a href="/" class="site-brand">
+<img src="" alt="" style="max-width: 60px">
+</a>
+</div>
+<div class="col-md-5 order-3 order-md-2">
+<nav class="category-nav   ">
+
+<div class="row">
+<div class="col-2 pr-0">
+ <a href="javascript:void(0)" class="category-trigger mobile-category-trigger d-inline-block"><i class="fa fa-ellipsis-v"></i>
+</a>
+</div>
+<div class="col-10 pl-0">
+<div class="header-search-block">
+<form method="POST" action="/store/search/" class="search-form">
+<input type="hidden" name="csrfmiddlewaretoken" value="lKCKZv3xICSkUUYps6cCybqhevK4L7ZPIewMes8bMfilRcQEL0IEaAT3NkpVI1GW">
+<button class="pl-3 pr-3"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+<div class="">
+<a href="javascript:void(0)" class="category-trigger d-none"><i class="fa fa-bars"></i>Browse
+categories</a>
+<ul class="category-menu">
+<li class="cat-item">
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="col-md-3 col-5  order-md-3 text-right">
+<div class="mobile-header-btns header-top-widget">
+<ul class="header-links">
+<li class="sin-link">
+<style>
+                                            .cart-block-mobile:before {
+                                                content: "";
+                                            }
+                                        </style>
+<div class="cart-block cart-block-mobile">
+<a href="javascript:void(0)" class="cart-link link-icon" style="position: relative">
+<div class="text-number text-danger" style="position: absolute; top: -20px; right: -20px; padding: 5px;">
+<span id="countItemsMobile" class="badge badge-danger" style="border-radius: 25px">0</span>
+</div>
+<i class="ion-bag"></i>
+</a>
+<div class="cart-dropdown-block mobile-cart-dropdown-block">
+<div id="mobile-cart-dropdown-items"></div>
+<div class="single-cart-block">
+<div class="btn-block">
+<a href="/store/checkout/" class="btn">View Cart <i class="fas fa-chevron-right"></i></a>
+<a href="/store/checkout/" class="btn btn--primary">Check Out <i class="fas fa-chevron-right"></i></a>
+</div>
+ </div>
+</div>
+</div>
+</li>
+<li class="sin-link">
+<a href="javascript:" class="link-icon hamburgur-icon off-canvas-btn"><i class="ion-navicon"></i></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<aside class="off-canvas-wrapper">
+<div class="btn-close-off-canvas">
+<i class="ion-android-close"></i>
+</div>
+<div class="off-canvas-inner">
+
+<div class="search-box offcanvas d-none">
+<form method="POST" action="/store/search/" class="search-form">
+<input type="hidden" name="csrfmiddlewaretoken" value="lKCKZv3xICSkUUYps6cCybqhevK4L7ZPIewMes8bMfilRcQEL0IEaAT3NkpVI1GW">
+<input type="text" name="q" class="qInput" placeholder="Search Here">
+<button class="search-btn"><i class="ion-ios-search-strong"></i></button>
+</form>
+</div>
+
+
+<div class="mobile-navigation pt-0">
+
+<nav class="off-canvas-nav">
+<ul class="mobile-menu main-mobile-menu">
+<li class="menu-item">
+<a href="/">Home</a>
+</li>
+<li class="menu-item menu-item-has-children">
+<a href="/store/eBooks/">eBooks</a>
+<ul class="sub-menu">
+<li><a href="/store/eBooks/">All eBooks</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a href="/store/audiobooks/">Audiobooks</a>
+<ul class="sub-menu">
+<li><a href="/store/audiobooks/">All Audiobooks</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children">
+<a href="/store/paperbacks/">Paperbacks</a>
+<ul class="sub-menu">
+<li><a href="/store/paperbacks/">All Paperbacks</a></li>
+</ul>
+</li>
+<li class="menu-item">
+<a href="/affiliate/">Affiliate</a>
+</li>
+<li class="menu-item">
+<a href="/store/library/">Library</a>
+</li>
+</ul>
+</nav>
+<a href="/author/" class="btn btn--primary btn-block">Publish</a>
+
+</div>
+
+<nav class="off-canvas-nav">
+<ul class="mobile-menu menu-block-2">
+ <li class="menu-item-has-children">
+<a href="#">My Account <i class="fas fa-angle-down"></i></a>
+<ul class="sub-menu">
+<li><a href="/accounts/profile/">Profile</a></li>
+<li><a href="/store/library/">Library</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="off-canvas-bottom">
+<div class="contact-list mb--10">
+<a href="phone:" class="sin-contact"><i class="fas fa-mobile-alt"></i></a>
+<a href="mailto:" class="sin-contact"><i class="fas fa-envelope"></i></a>
+</div>
+<div class="off-canvas-social">
+<a href="https://facebook.com/tebebabooks" class="single-icon"><i class="fab fa-facebook-f"></i></a>
+<a href="https://twitter.com/tebebabooks" class="single-icon"><i class="fab fa-twitter"></i></a>
+<a href="https://instagram.com/tebebabooks" class="single-icon"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+</aside>
+
+</div>
+
+<div class="sticky-init fixed-header common-sticky">
+<div class="container d-none d-lg-block">
+<div class="row align-items-center">
+<div class="col-lg-4">
+<a href="/" class="site-brand">
+<img src="" alt="" style="max-width: 60px">
+</a>
+</div>
+<div class="col-lg-8">
+<div class="main-navigation flex-lg-right">
+<ul class="main-menu menu-right ">
+<li class="menu-item">
+<a href="/">Home</a>
+</li>
+<li class="menu-item has-children">
+<a href="/store/eBooks/" style="text-transform:initial">eBOOKS <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+<ul class="sub-menu">
+<li><a href="/store/eBooks/">All <span style="text-transform:initial">eBooks</span></a></li>
+</ul>
+</li>
+<li class="menu-item has-children">
+<a href="/store/audiobooks/">Audiobooks <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+<ul class="sub-menu">
+<li><a href="/store/audiobooks/">All Audiobooks</a></li>
+</ul>
+</li>
+<li class="menu-item has-children">
+<a href="/store/paperbacks/">Paperbacks <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+<ul class="sub-menu">
+<li><a href="/store/paperbacks/">All Paperbacks</a></li>
+</ul>
+</li>
+<li class="menu-item">
+<a href="/affiliate/">Affiliate</a>
+</li>
+<li class="menu-item">
+ <a href="/store/library/">Library</a>
+</li>
+<li class="menu-item bg-primary">
+<a href="/author/" class="mr-2 text-light">Publish</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+</div>
+<div class="product-container">
+<style>
+        section.container ul{
+            list-style-type: disc;
+        }
+    </style>
+<div class="w-100">
+<section class="">
+<div class="jumbotron bg-dark text-light text-center" style="border-radius: 0">
+<h1>Error 404</h1>
+<h2>Page Not Found</h2>
+</div>
+</section>
+<div style="margin-bottom: 7em"></div>
+</div>
+</div>
+</div>
+<div id="content-loader" class="text-center" style="display: none;">
+<div style="display: flex; justify-content: center; align-items: center">
+<img src="/static/store/loader/loader7.gif" />
+</div>
+<h6 class="text-muted">searching...</h6>
+</div>
+<div class="" id="playerContainer" style="position: fixed; bottom: 0; right: 0; display: none;">
+
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player" style="min-width: 250px;">
+<div class="jp-type-single">
+<div class="jp-gui jp-interface">
+<div class="jp-volume-controls">
+<button class="jp-mute" role="button" tabindex="0">mute</button>
+<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+<div class="jp-volume-bar">
+<div class="jp-volume-bar-value"></div>
+</div>
+</div>
+<div class="jp-controls-holder">
+<div class="jp-controls">
+<button class="jp-play" role="button" tabindex="0">play</button>
+<button class="jp-stop" role="button" tabindex="0">stop</button>
+</div>
+<div class="jp-progress">
+<div class="jp-seek-bar">
+<div class="jp-play-bar"></div>
+</div>
+</div>
+<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+<div class="jp-toggles">
+<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+</div>
+</div>
+</div>
+<div class="jp-details">
+<div class="jp-title" aria-label="title">&nbsp;</div>
+</div>
+<div class="jp-no-solution">
+<span>Update Required</span>
+To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog" aria-labelledby="quickModal" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="product-details-modal">
+
+<div id="product-details-container"></div>
+<div id="modal-loader" class="text-center">
+<div style="display: flex; justify-content: center; align-items: center">
+<img src="/static/store/loader/loader7.gif" />
+</div>
+<h6 class="text-muted">Please wait...</h6>
+</div>
+</div>
+<div class="modal-footer">
+<div class="widget-social-share">
+<span class="widget-label">Share:</span>
+<div class="modal-social-share">
+<a href="#" class="single-icon"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="single-icon"><i class="fab fa-twitter"></i></a>
+<a href="#" class="single-icon"><i class="fab fa-youtube"></i></a>
+<a href="#" class="single-icon"><i class="fab fa-google-plus-g"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="site-footer">
+<div class="container">
+<div class="row justify-content-between  section-padding">
+<div class=" col-xl-3 col-lg-4 col-sm-6">
+<div class="single-footer pb--40">
+<div class="brand-footer footer-title">
+<img src="" alt="" style="max-width: 150px">
+</div>
+<div class="footer-contact">
+<p><span class="label">Address:</span><span class="text"></span></p>
+<p><span class="label">Phone:</span><span class="text"></span></p>
+<p><span class="label">Email:</span><span class="text"></span></p>
+</div>
+</div>
+</div>
+<div class=" col-xl-3 col-lg-2 col-sm-6">
+<div class="single-footer pb--40">
+<div class="footer-title">
+<h3>Categories</h3>
+</div>
+<ul class="footer-list normal-list">
+<li><a href="#">All Categories</a></li>
+</ul>
+</div>
+</div>
+<div class=" col-xl-3 col-lg-2 col-sm-6">
+<div class="single-footer pb--40">
+<div class="footer-title">
+<h3>Quick Links</h3>
+</div>
+<ul class="footer-list normal-list">
+<li><a href="#">Cart</a></li>
+<li><a href="/store/wishlists/">Wishlist</a></li>
+<li><a href="/">About Us</a></li>
+<li><a href="/tnc/">Terms & Conditions</a></li>
+<li><a href="/policy/">Privacy Policy</a></li>
+<li><a href="/faq/">FAQs</a></li>
+</ul>
+</div>
+</div>
+<div class=" col-xl-3 col-lg-4 col-sm-6">
+ <div class="footer-title">
+<p>Signup for TEBEBA BOOKS weekly updates</p>
+</div>
+<div class="newsletter-form mb--30">
+<form action="/store/newsletter/" method="POST">
+<input type="hidden" name="csrfmiddlewaretoken" value="lKCKZv3xICSkUUYps6cCybqhevK4L7ZPIewMes8bMfilRcQEL0IEaAT3NkpVI1GW">
+<input type="hidden" name="newsletter" value="true" />
+<input type="email" name="email" class="form-control" placeholder="Enter Your Email Address Here...">
+<button type="submit" class="btn btn--primary w-100">Subscribe</button>
+</form>
+</div>
+<div class="social-block">
+<h3 class="title">STAY CONNECTED</h3>
+<ul class="social-list list-inline">
+<li class="single-social facebook"><a href="https://facebook.com/tebebabooks"><i class="ion ion-social-facebook"></i></a>
+</li>
+<li class="single-social twitter"><a href="https://twitter.com/tebebabooks"><i class="ion ion-social-twitter"></i></a>
+</li>
+<li class="single-social instagram" style="background:#C84370"><a href="https://instagram.com/tebebabooks"><i class="ion ion-social-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom pt-2 pb-2">
+<div class="container">
+
+<a href="#" class="payment-block">
+<img src="image/icon/payment.png" alt="">
+</a>
+<p class="copyright-text">Copyright © 2022 <a href="#" class="author"></a>. All Right Reserved.
+
+</p>
+</div>
+</div>
+</footer>
+</div>
+<script>
+        var csrf_token = 'lKCKZv3xICSkUUYps6cCybqhevK4L7ZPIewMes8bMfilRcQEL0IEaAT3NkpVI1GW';
+        var currencySymbol = '';
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="/static/store/assets/js/plugins.js"></script>
+<script src="/static/store/assets/js/ajax-mail.js"></script>
+<script src="/static/store/assets/js/custom.js"></script>
+
+
+<script src="/static/controller/sweetalert2.min.js"></script>
+<script src="/static/store/assets/js/jplayer/jquery.jplayer.min.js"></script>
+<script>
+
+        $(document).ready(function () {
+
+            const toggleFixed = () => {
+                if( $(window).width() > 768 ){
+                    if ( $(window).scrollTop() > 100 ){
+                        //$('#fixed-section').css({'position': 'fixed', 'top': '100px', 'right': '50px', 'height': '500px', 'overflow-y': 'scroll'});
+                        $('#fixed-section').addClass('fixed-section');
+                        $('#fixed-section').css({'right': $('#pageContainer').css('margin-right'), 'width': $('#pageCol3').css('width'), 'overflow-y': 'scroll' })
+                        $('#fixed-section').removeClass('pos-static');
+
+
+                    }else if( $(window).scrollTop() < 100 ){
+                        $('#fixed-section').addClass('pos-static');
+                        $('#fixed-section').css({'height':'100%', 'overflow-y': 'unset'});
+                    }
+                    
+                    if($(window).scrollTop() + $(window).height() > $(document).height() - 1000) {
+                        
+                        $('#fixed-section-child').parents().filter(function() {
+                            if ( $(this).css("position") === "fixed" ) {
+                                $(this).addClass('pos-static');
+                            }
+                        });
+
+                    }
+
+                    if($(window).scrollTop() + $(window).height() > $(document).height() - 1300) {
+                        if( $(window).width() < 1050 ) { 
+                            $('#fixed-section').css('height', '300px');
+                        }else{
+                            $('#fixed-section').css('height', '500px');
+                        }
+                    }
+
+                    
+
+                }
+
+                
+            }
+            
+            $(window).scroll(function() {
+                toggleFixed();
+            });
+
+            $(window).resize(function () {
+                if( $(window).width() < 768 ){
+                    $('#fixed-section').addClass('pos-static');
+                    $('#fixed-section').css('height', 'unset');
+                }else{
+                    toggleFixed();
+                }
+            });
+
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // $('[name="star"]').on('change, click', function(){
+            //     $('[name="rating"]').val(this.value);
+            // })
+
+
+            $(document).on('hidden.bs.modal', '#quickModal', function () {
+                $('#modal-loader').hide();
+                $('#product-details-container').html('');
+            })
+
+            $(document).on('click', '#btnQuickModal', function () {
+                var product_id = $(this).attr("data-product-id");
+                $.ajax({
+                    type: 'POST',
+                    url: `/store/details/${product_id}/`,
+                    data: { 'csrfmiddlewaretoken': csrf_token },
+                    dataType: 'json',
+                    success: function (response) {
+                        $('#modal-loader').hide();
+                        $('#product-details-container').html(response['details']);
+                        // recaliberate the slick-slider
+                        var timer
+                        timer = setTimeout(() => {
+                            $('.product-details-slider').slick($('.product-details-slider').data('slick-setting'));
+                            $('.product-slider-nav').slick($('.product-slider-nav').data('slick-setting'));
+                        }, 200);
+
+                    },
+                    error: function (rs, e) {
+                        console.log(rs.responseText);
+                    },
+                });
+            });
+
+
+
+            var timer;
+            var $qString;
+            // $('.qInput').keyup(function (e) {
+            $(document).on('keyup', '.qInput', function(){
+                $event = this;
+                $qString = $($event).val();
+                
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    $form = $($event).closest("form");
+                    $form.submit();
+                    // $(".search-form").submit();
+                }, 1000);
+
+            });
+
+
+            // search 
+            $(document).on('submit', '.search-form', function (event) {
+                event.preventDefault();
+                $('.product-container').empty();
+                $('#content-loader').show();
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function (response) {
+
+                        $('.product-container').html(response['search']);
+                        $('#content-loader').hide();
+
+                        recaliberateScript();
+
+                        var url_string = window.location.href
+                        var url = new URL(url_string);
+                        var host = url.hostname;
+                        var newPath = '/store/search/'+converToSlug($qString);
+
+                        window.history.pushState({ path: newPath }, '', newPath);
+
+                    },
+                    error: function (rs, e) {
+                        console.log(rs.responseText);
+                    },
+                });
+            });
+
+            
+            
+            
+
+
+
+
+            loadCart();
+        });
+
+        // conver string to slug
+        const converToSlug = (text) => {
+            return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+        }
+
+        const addToCart = (product_id, product_name, qty = 1) => {
+            $.ajax({
+                type: 'POST',
+                url: "/store/add-to-cart/",
+                data: { 'product_id': product_id, 'quantity': qty, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function (response) {
+                    if(response['login_required']) {
+                        Swal.fire({
+                            position: 'bottom-end',
+                            html: `<label class="text-dark"><a href="/accounts/login/" class="btn-link">Login</a> is required</label>`,
+                            showConfirmButton: false,
+                            timer: 10000,
+                            timerProgressBar: true,
+                        });
+                        return
+                    }
+                    Swal.fire({
+                        position: 'bottom-end',
+                        html: `<span class="text-light">Added '${product_name}' to cart successfully</span>`,
+                        showConfirmButton: false,
+                        toast: true,
+                        background: 'green',
+                        padding: '1.5em',
+                        timer: 4500,
+                        timerProgressBar: true,
+                    });
+                    loadCart();
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        }
+
+        const addToCart_Details = (product_id, product_name, qty=$('#qty').val()) => {
+            $.ajax({
+                type: 'POST',
+                url: "/store/add-to-cart/",
+                data: {'product_id': product_id, 'quantity': qty, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function(response){
+                    if(response['login_required']) {
+                        Swal.fire({
+                            position: 'bottom-end',
+                            html: `<label class="text-dark"><a href="/accounts/login/" class="btn-link">Login</a> is required</label>`,
+                            showConfirmButton: false,
+                            timer: 10000,
+                            timerProgressBar: true,
+                        });
+                        return
+                    }
+                    Swal.fire({
+                        position: 'top-end',
+                        html: `<span class="text-light">Added '${product_name}' to cart successfully</span>`,
+                        showConfirmButton: false,
+                        toast: true,
+                        background: 'green',
+                        padding: '1.5em',
+                        timer: 4500,
+                        timerProgressBar: true,
+                    });
+                    loadCart(); // function declared in base template
+                },
+                error: function(rs, e){
+                    console.log(rs.responseText);
+                },
+            });
+        }
+
+
+
+        const loadCart = () => {
+            $.ajax({
+                type: 'POST',
+                url: "/store/add-to-cart/",
+                data: { 'get-products-in-cart': true, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function (response) {
+                    if(response['login_required']) {
+                        // console.log("Login required");
+                        return
+                    }
+                    $('#countItems').text(response['cart-count']);
+                    $('#totalPrice').text(response['total_price']);
+                    $('#cart-dropdown-items').html(response['productsincart']);
+                    $('#mobile-cart-dropdown-items').html(response['productsincart']);
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        }
+
+
+        const remove_from_cart = (cart_id, product_name) => {
+            $.ajax({
+                type: 'POST',
+                url: "/store/add-to-cart/",
+                data: { 'remove-from-cart': true, 'cart-id': cart_id, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function (response) {
+                    Swal.fire({
+                        position: 'bottom-start',
+                        html: `<span class="text-light">Removed '${product_name}' from cart successfully</span>`,
+                        showConfirmButton: false,
+                        toast: true,
+                        background: '#BD0018',
+                        padding: '1.3em',
+                        timer: 4500,
+                        timerProgressBar: true,
+                    });
+                    loadCart();
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        }
+
+
+        const filterByPriceRange = (min_price, max_price) => {
+            $('.product-container').empty();
+            $('#content-loader').show();
+
+            $.ajax({
+                type: 'POST',
+                url: "/store/search/",
+                data: { 'filter_range': true, 'min_price': min_price, 'max_price': max_price, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function (response) {
+                    $('.product-container').html(response['search']);
+                    $('#content-loader').hide();
+
+                    recaliberateScript();
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        }
+
+        
+
+
+        const addToWishlist = (product_id, product_name, qty = 1) => {
+            $.ajax({
+                type: 'POST',
+                url: "/store/wishlists/",
+                data: { 'product_id': product_id, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function (response) {
+                    if(response['login_required']) {
+                        Swal.fire({
+                            position: 'bottom-end',
+                            html: `<label class="text-dark"><a href="/accounts/login/" class="btn-link">Login</a> is required</label>`,
+                            showConfirmButton: false,
+                            timer: 10000,
+                            timerProgressBar: true,
+                        });
+                        return
+                    }
+                    Swal.fire({
+                        position: 'bottom-end',
+                        html: `<span class="text-light">'${response['result']}'</span>`,
+                        showConfirmButton: false,
+                        toast: true,
+                        background: '#17A05D',
+                        padding: '1.5em',
+                        timer: 4500,
+                        timerProgressBar: true,
+                    });
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        }
+
+
+        $(document).on('click', '.jp-stop', function() {
+            $('#playerContainer').hide();
+        });
+
+        $(document).on('click', '.audiobtn', function() {
+            $src = $(this).data('audio-file');
+            $title = $(this).data('title');
+            $product_id = $(this).data('product-id');
+            $path = "/media/";
+
+            addToLibrary($product_id);
+            ready = false;
+            $("#jquery_jplayer_1").jPlayer("destroy");
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function () {
+                    $(this).jPlayer("setMedia", {
+                        title: $title,
+                        // m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+                        // oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+                        mp3: $path + $src
+                    });
+                    $(this).jPlayer("play", 1);
+                    ready = true;
+                    $('#playerContainer').show();
+                },
+                pause: function() {
+                    // $(this).jPlayer("clearMedia");
+                    // console.log('player paused');
+                },
+                error: function(event) {
+                    if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+                        // Setup the media stream again and play it.
+                        $(this).jPlayer("setMedia", {
+                            title: $title,
+                            mp3: $path + $src
+                        }).jPlayer("play");
+                    }
+                },
+
+                cssSelectorAncestor: "#jp_container_1",
+                swfPath: "/static/store/assets/js/jplayer",
+                supplied: $src.split('.')[1],
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true,
+                remainingDuration: true,
+                toggleDuration: true
+            });
+
+        });
+        // disable right clik for element
+        $('#jp_container_1').bind('contextmenu', function(e) {
+            return false;
+        }); 
+        
+        // add item to library
+        const addToLibrary = product_id => {
+            if(!product_id) return false;
+
+            $.ajax({
+                type: 'POST',
+                url: "/store/library/",
+                data: { 'product_id': product_id, 'csrfmiddlewaretoken': csrf_token },
+                dataType: 'json',
+                success: function (response) {
+                    Swal.fire({
+                        position: 'top-start',
+                        html: `<span class="text-light">'${response['result']}'</span>`,
+                        showConfirmButton: false,
+                        toast: true,
+                        background: '#17A05D',
+                        padding: '1.5em',
+                        timer: 4500,
+                        timerProgressBar: true,
+                    });
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        }
+        
+
+
+        // script in custom.js
+        const recaliberateScript = () => {
+            $('.nice-select').niceSelect();
+
+            /*-------------------------------------
+                --> Product Sorting
+            ---------------------------------------*/
+            $('.product-view-mode a').on('click', function (e) {
+                e.preventDefault();
+
+                var shopProductWrap = $('.shop-product-wrap');
+                var viewMode = $(this).data('target');
+
+                $('.product-view-mode a').removeClass('active');
+                $(this).addClass('active');
+                shopProductWrap.removeClass('grid list grid-four').addClass(viewMode);
+                if (shopProductWrap.hasClass('grid') || shopProductWrap.hasClass('grid-four')) {
+                    $('.product-card').removeClass('card-style-list')
+                } else {
+                    $('.product-card').addClass('card-style-list')
+                }
+            });
+
+            /*-------------------------------------
+                --> Range Slider
+            ---------------------------------------*/
+            $(function () {
+                $(".sb-range-slider").slider({
+                    range: true,
+                    min: 0,
+                    max: 99999,
+                    values: [100, 39999],
+                    slide: function (event, ui) {
+                        $("#amount").val(currencySymbol + ui.values[0] + " - " + currencySymbol + ui.values[1]);
+                    }
+                });
+                $("#amount").val(currencySymbol + $(".sb-range-slider").slider("values", 0) +
+                    " - " + currencySymbol + $(".sb-range-slider").slider("values", 1));
+            });
+
+        }
+    </script>
+</body>
+</html>

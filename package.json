@@ -1,0 +1,24 @@
+{
+  "name": "tb-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yetunde495/tb-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yetunde495/tb-frontend/issues"
+  },
+  "homepage": "https://github.com/Yetunde495/tb-frontend#readme",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "slick-animation": "^0.3.3",
+    "slick-carousel": "^1.8.1"
+  }
+}
